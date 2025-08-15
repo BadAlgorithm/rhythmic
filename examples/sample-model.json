@@ -1,0 +1,80 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "source": "prometheus",
+    "metric": "http_requests_total",
+    "duration": "7d",
+    "samples": 10080,
+    "step": 60,
+    "timestamp": "2024-01-15T10:30:00.000Z",
+    "analysis_duration_ms": 1247
+  },
+  "baseline": {
+    "type": "fourier",
+    "mean": 42.5,
+    "std": 12.8,
+    "coefficients": [
+      {
+        "frequency": 0.000694,
+        "amplitude": 8.2,
+        "phase": 1.57,
+        "period_minutes": 1440,
+        "confidence": 0.85
+      },
+      {
+        "frequency": 0.000099,
+        "amplitude": 4.1,
+        "phase": 0.78,
+        "period_minutes": 10080,
+        "confidence": 0.62
+      }
+    ]
+  },
+  "spikes": {
+    "threshold": 81.9,
+    "events": [
+      {
+        "timestamp": 1705312800000,
+        "magnitude": 95.2,
+        "duration_minutes": 3,
+        "peak_magnitude": 127.8
+      },
+      {
+        "timestamp": 1705402800000,
+        "magnitude": 88.7,
+        "duration_minutes": 2,
+        "peak_magnitude": 102.3
+      }
+    ],
+    "distribution": {
+      "type": "exponential",
+      "lambda": 0.0012,
+      "mean_interval_minutes": 833.3,
+      "count": 2
+    }
+  },
+  "pattern": {
+    "type": "business-hours-normal",
+    "confidence": 0.85,
+    "daily": true,
+    "weekly": true,
+    "seasonal": false,
+    "spike_frequency": "occasional"
+  },
+  "statistics": {
+    "mean": 42.5,
+    "std": 12.8,
+    "variance": 163.84,
+    "p50": 40.2,
+    "p95": 68.1,
+    "p99": 81.9,
+    "min": 12.3,
+    "max": 127.8
+  },
+  "decomposition": {
+    "wavelet_type": "db4",
+    "levels": 5,
+    "smoothness_ratio": 0.78,
+    "energy_distribution": [65.2, 18.4, 8.7, 4.9, 2.8]
+  }
+}

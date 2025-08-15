@@ -1,0 +1,60 @@
+{
+  "name": "rhythmic",
+  "version": "1.0.0",
+  "description": "🎵 Match the rhythm of production - Transform Prometheus metrics into K6 load tests",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "rhythmic": "./bin/rhythmic.js"
+  },
+  "scripts": {
+    "start": "node bin/rhythmic.js",
+    "setup": "node bin/rhythmic.js setup",
+    "postinstall": "echo '\\n🎵 Rhythmic installed! Run: npm run setup' || true",
+    "test": "jest",
+    "lint": "eslint src/",
+    "docker:build": "docker build -t rhythmic/rhythmic .",
+    "docker:run": "docker run --rm -v $(pwd):/work rhythmic/rhythmic",
+    "example:learn": "node bin/rhythmic.js learn --prometheus http://localhost:9090",
+    "example:generate": "node bin/rhythmic.js generate --target http://api.example.com",
+    "example:analyze": "node bin/rhythmic.js analyze --prometheus http://localhost:9090 --target http://api.example.com"
+  },
+  "keywords": [
+    "k6",
+    "load-testing",
+    "performance-testing",
+    "prometheus",
+    "wavelet",
+    "fourier",
+    "signal-processing",
+    "traffic-replay",
+    "load-test-generator"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "chalk": "^5.3.0",
+    "ora": "^7.0.0",
+    "inquirer": "^9.0.0",
+    "date-fns": "^3.0.0",
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "eslint": "^8.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BadAlgorithm/rhythmic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BadAlgorithm/rhythmic/issues"
+  },
+  "homepage": "https://github.com/BadAlgorithm/rhythmic#readme"
+}

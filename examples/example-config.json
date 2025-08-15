@@ -1,0 +1,34 @@
+{
+  "prometheus": {
+    "url": "http://prometheus:9090",
+    "timeout": 30,
+    "auth": {
+      "username": "admin",
+      "password": "password"
+    }
+  },
+  "analysis": {
+    "wavelet_type": "db4",
+    "decomposition_levels": 5,
+    "spike_threshold": 3.0,
+    "default_duration": "7d",
+    "default_step": 60
+  },
+  "generation": {
+    "default_duration": "1h",
+    "default_target": "http://localhost:8080",
+    "default_scale": 1,
+    "headers": {
+      "User-Agent": "Rhythmic Load Test v1.0.0",
+      "Accept": "application/json"
+    }
+  },
+  "k6": {
+    "thresholds": {
+      "http_req_duration": ["p(95)<500", "p(99)<1000"],
+      "http_req_failed": ["rate<0.05"],
+      "errors": ["rate<0.05"]
+    },
+    "output_formats": ["json", "stdout"]
+  }
+}
